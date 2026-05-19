@@ -30,8 +30,14 @@ def add_patient() -> tuple[int, str, int]:
         else:
             specialization = int(specialization)
             break
-    print('Enter Patient name :', end=' ')
-    name = input()
+    while True:
+        print('Enter Patient name :', end=' ')
+        name = input().strip()
+        if not name:
+            print('Name cannot be empty, try again')
+            continue
+        else:
+            break
     while True:
         print('Status is 0 (normal), 1 (urgent) and 2 (super urgent)')
         print('Enter status number (from 0 to 2) :', end = ' ')
@@ -71,7 +77,13 @@ def remove_leaving_patient() -> tuple[int, str]:
         else:
             specialization = int(specialization)
             break
-    print('Enter Patient name :', end=' ')
-    name = input()
+    while True:
+        print('Enter Patient name :', end=' ')
+        name = input().strip()
+        if not name:
+            print('Name cannot be empty, try again')
+            continue
+        else:
+            break
     specialization -= 1
     return specialization, name

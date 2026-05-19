@@ -1,7 +1,7 @@
 class Hospital:
 
     def __init__(self):
-        self.patients = [[[] for __ in range(3)] for _ in range(20)]
+        self.patients = [[[] for _ in range(3)] for _ in range(20)]
 
     def add_patient(self, name : str, status : int, specialization_number : int) -> bool:
         specialization = self.patients[specialization_number]
@@ -23,7 +23,7 @@ class Hospital:
                 answer += f'Patient: {patient} is Urgent\n'
             for patient in specialization[0]:
                 answer += f'Patient: {patient} is Normal\n'
-        return answer
+        return answer if answer else 'No patients currently in the system.'
 
     def get_next_patient(self, specialization_number : int) -> str:
         specialization = self.patients[specialization_number]
@@ -38,8 +38,6 @@ class Hospital:
 
     def remove_leaving_patient (self, name : str, specialization_number : int) -> bool:
         specialization = self.patients[specialization_number]
-        if len(specialization[0]) + len(specialization[1]) + len(specialization[2]) == 0:
-            return False
         if name in specialization[2]:
             specialization[2].pop(specialization[2].index(name))
             return True

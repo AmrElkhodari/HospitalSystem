@@ -1,7 +1,7 @@
 from core import Hospital
 import ui
 
-def program_loop():
+def program_loop(hospital):
     while True:
         choice = ui.menu_options()
         if choice == 1:
@@ -32,4 +32,4 @@ def program_loop():
 
 if __name__ == '__main__':
     hospital = Hospital()
-    program_loop()
+    program_loop(hospital)
